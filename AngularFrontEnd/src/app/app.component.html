@@ -1,0 +1,33 @@
+<body>
+  <!-- Choose File -->
+  <div class="file-input">
+    <input type="file" class="file-input" onchange="console.log(event.target.files)" #file>
+  </div>
+  <!--Upload File -->
+  <div class="row">
+    <div class="offset-md-10 col-md-2">
+      <button type="button" class="btn btn-primary" (click)="returnToCreate()">Add File</button>
+    </div>
+  </div>
+  <app-file-upload (onUploadFinished)="uploadFinished($event)"></app-file-upload>
+
+  <!-- File Display -->
+  <section class="files" *ngIf="!isCreate">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">File Name</th>
+          <th scope="col">File Size</th>
+          <th scope="col">Upload Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of files">
+          <td>{{file.name}}</td>
+          <td>{{file.size}}</td>
+          <td>{{uploadDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>

@@ -1,0 +1,22 @@
+<mat-table class="files-table mat-elevation-z8" [dataSource]="dataSource">
+
+    <ng-container matColumnDef="seqNo">
+        <mat-header-cell *matHeaderCellDef>File Name</mat-header-cell>
+        <mat-cell class="file-name-cell" *matCellDef="let file">{{file.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>File Size</mat-header-cell>
+        <mat-cell class="file-size-cell" *matCellDef="let file">{{file.size}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef>Upload Date</mat-header-cell>
+        <mat-cell class="upload-date-cell" *matCellDef="let file">{{file.lastModifiedDate}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
